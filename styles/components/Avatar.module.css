@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+.avatar_img {
+  border-radius: 50%;
+  height: 5em;
+  width: 5em;
+}

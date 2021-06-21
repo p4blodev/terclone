@@ -1,19 +1,27 @@
 import Head from "next/head";
+import { useEffect, useState } from "react";
+import Avatar from "../components/Avatar";
 import Button from "../components/Buton";
-import { loginWithGitHub } from "../firebase/client";
+import { loginWithGitHub, onAuthStateChange } from "../firebase/client";
 import Github from "../icons/Github";
 import styles from "../styles/Home.module.css";
-
 export default function Home() {
+  const [user, setUser] = useState(undefined);
+
+  useEffect(() => {
+    onAuthStateChange(setUser);
+  }, []);
+
   const handleClick = () => {
     loginWithGitHub()
-      .then((user) => {
-        console.log(user);
+      .then((response) => {
+        setUser(response);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -28,10 +36,15 @@ export default function Home() {
           Talk about development about with developers
         </h2>
         <div className={styles.action}>
-          <Button onClick={handleClick}>
-            <Github fill="#fff" height="24" width="24" />
-            Login with Gtihub
-          </Button>
+          {user === null && (
+            <Button onClick={handleClick}>
+              <Github fill="#fff" height="24" width="24" />
+              Login with Gtihub
+            </Button>
+          )}
+          {user && user.avatar && (
+            <Avatar image={user.avatar} username={user.username} />
+          )}
         </div>
       </main>
     </div>

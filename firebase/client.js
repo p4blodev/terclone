@@ -10,11 +10,24 @@ const firebaseConfig = {
   measurementId: "G-X3KWZ94TZP",
 };
 
-try {
-  firebase.initializeApp(firebaseConfig);
-} catch {
-  firebase.app();
-}
+!firebase.apps.length && firebase.initializeApp(firebaseConfig);
+
+const mapUserFromFirebaseAuth = (user) => {
+  const { displayName, email, photoURL } = user;
+
+  return {
+    avatar: photoURL,
+    username: displayName,
+    email,
+  };
+};
+
+export const onAuthStateChange = (onchange) => {
+  return firebase.auth().onAuthStateChanged((user) => {
+    const normalizedUser = mapUserFromFirebaseAuth(user);
+    onchange(normalizedUser);
+  });
+};
 
 export const loginWithGitHub = () => {
   const gitHubProvider = new firebase.auth.GithubAuthProvider();

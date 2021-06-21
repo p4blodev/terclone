@@ -27,11 +27,11 @@
   text-decoration: underline;
 }
 .title {
-  color: var(--primary);
+  color: var(--secondary);
   margin-bottom: 0.5em;
 }
 .subtitle {
-  color: var(--secondary);
+  color: var(--primary);
   margin: 0;
   text-align: center;
 }
