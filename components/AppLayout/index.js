@@ -1,3 +1,3 @@
-export default function Applayout({ children }) {
-  return <></>;
+export default function Applayout ({ children }) {
+  return <></>
 }

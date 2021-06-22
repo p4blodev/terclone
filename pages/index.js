@@ -1,26 +1,27 @@
-import Head from "next/head";
-import { useEffect, useState } from "react";
-import Avatar from "../components/Avatar";
-import Button from "../components/Buton";
-import { loginWithGitHub, onAuthStateChange } from "../firebase/client";
-import Github from "../icons/Github";
-import styles from "../styles/Home.module.css";
+import Head from 'next/head'
+import { useEffect, useState } from 'react'
+import Avatar from '../components/Avatar'
+import Button from '../components/Buton'
+import { loginWithGitHub, onAuthStateChange } from "../firebase/client"
+import Github from '../icons/Github'
+import styles from '../styles/Home.module.css'
+
 export default function Home() {
-  const [user, setUser] = useState(undefined);
+  const [user, setUser] = useState(undefined)
 
   useEffect(() => {
-    onAuthStateChange(setUser);
-  }, []);
+    onAuthStateChange(setUser)
+  }, [])
 
   const handleClick = () => {
     loginWithGitHub()
       .then((response) => {
-        setUser(response);
+        setUser(response)
       })
       .catch((error) => {
-        console.error(error);
-      });
-  };
+        console.error(error)
+      })
+  }
 
   return (
     <div className={styles.container}>
@@ -33,7 +34,7 @@ export default function Home() {
       <main className={styles.main}>
         <h1 className={styles.title}>Terclone</h1>
         <h2 className={styles.subtitle}>
-          Talk about development about with developers
+          Talk about development with developers
         </h2>
         <div className={styles.action}>
           {user === null && (
@@ -48,5 +49,5 @@ export default function Home() {
         </div>
       </main>
     </div>
-  );
+  )
 }
