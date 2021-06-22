@@ -1,4 +1,4 @@
-import styles from '../../styles/Components/Button.module.css'
+import styles from 'styles/Components/Button.module.css'
 
 export default function Button ({ children, onClick }) {
   return (
