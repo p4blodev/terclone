@@ -2,7 +2,7 @@
   align-items: center;
   background-color: #ffffffaa;
   backdrop-filter: blur(5px);
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #eee;
   display: flex;
   height: 3em;
   position: sticky;
@@ -11,16 +11,20 @@
 }
 .headerTitle {
   font-weight: bold;
-  margin-left: 1em;
+  padding-left: 1em;
 }
 .content {
   height: 100%;
+  overflow-y: auto;
   width: 100%;
 }
 .nav {
   align-items: center;
-  border-top: 1px solid #ccc;
+  background-color: #ffffff;
+  border-top-left-radius: 1px solid #eee;
   display: flex;
   height: 3em;
+  position: sticky;
+  bottom: 0;
   width: 100%;
 }

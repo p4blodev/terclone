@@ -2,14 +2,19 @@ import Devit from 'components/Devit'
 import Layout from 'components/Layout'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
+import useUser from 'hooks/useUser'
 import styles from 'styles/pages/Home.module.css'
+import { fetchLatestDevits } from 'firebase/client'
 export default function Home() {
+  useUser()
+  const user = useUser()
   const [timeLine, setTimeline] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/statuses/home_timeline')
-      .then((res) => res.json())
-      .then(setTimeline)
+    user &&
+      fetchLatestDevits().then((doc) => {
+        setTimeline(doc)
+      })
   }, [])
 
   return (
@@ -26,17 +31,19 @@ export default function Home() {
         {timeLine.map((current) => {
           return (
             <Devit
-              key={current.id}
               avatar={current.avatar}
+              createdAt={current.createdAt}
+              key={current.id}
               id={current.id}
-              message={current.message}
-              username={current.username}
+              content={current.content}
+              userName={current.userName}
+              userId={current.userId}
             />
           )
         })}
       </section>
       <nav className={styles.nav}>
-        <p>Navigation</p>
+        <h3>Navigation</h3>
       </nav>
     </Layout>
   )

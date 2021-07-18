@@ -275,6 +275,7 @@ progress {
 
 textarea {
   overflow: auto;
+  box-sizing: border-box;
 }
 
 /**
@@ -361,4 +362,18 @@ template {
 
 [hidden] {
   display: none;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 0.2em;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 69, 0, 0.9);
+  border-radius: 1.5em;
 }

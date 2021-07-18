@@ -1,23 +1,16 @@
 import Button from 'components/Buton'
-import { loginWithGitHub, onAuthStateChange } from 'firebase/client'
+import { loginWithGitHub } from 'firebase/client'
 import Github from 'icons/Github'
 import Head from 'next/head'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Spinner from 'components/Spinner'
+import useUser, { USER_STATE } from 'hooks/useUser'
 import styles from 'styles/Index.module.css'
 
-const USER_STATE = {
-  NOT_LOOGED: null,
-  NOT_KNOW: undefined,
-}
-
 export default function Home() {
-  const [user, setUser] = useState(USER_STATE.NOT_KNOW)
+  const user = useUser()
   const router = useRouter()
-  useEffect(() => {
-    onAuthStateChange(setUser)
-  }, [])
 
   useEffect(() => {
     user && router.replace('/home')

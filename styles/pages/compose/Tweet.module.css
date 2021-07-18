@@ -8,9 +8,16 @@
   background-color: #fafafa;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   flex: 1;
   height: 100vh;
+  width: 100%;
+}
+.text {
+  border: 0;
+  font-size: 1.3em;
+  padding: 1em;
+  outline: 0;
+  resize: none;
   width: 100%;
 }
 @media (min-width: 550px) {
