@@ -5,20 +5,48 @@
   height: 100vh;
 }
 .main {
+  align-items: flex-start;
   background-color: #fafafa;
   display: flex;
-  flex-direction: column;
-  flex: 1;
   height: 100vh;
+  margin: 0.5em;
+  padding: 0.5em;
+  width: 100%;
+}
+.mainForm {
   width: 100%;
 }
 .text {
   border: 0;
+  border-radius: 0.5em;
   font-size: 1.3em;
   padding: 1em;
   outline: 0;
   resize: none;
   width: 100%;
+}
+.mediaContainer {
+  position: relative;
+}
+.tuitImg {
+  border-radius: 0.5em;
+  height: auto;
+  max-width: 100%;
+}
+.btnRemoveImg {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50em;
+  border: 0;
+  color: #fff;
+  font-size: 1em;
+  height: 2em;
+  position: absolute;
+  right: 0.5em;
+  top: 0.5em;
+  width: 2em;
+}
+.buttonContainer {
+  margin-top: 0.5em;
 }
 @media (min-width: 550px) {
   .main {
@@ -26,6 +54,7 @@
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     margin-bottom: 1.5em;
     margin-top: 1.5em;
+    padding: 0.5em;
     width: 450px;
   }
 }

@@ -1,4 +1,19 @@
+.container:hover {
+  background-color: #f5f8fa;
+  cursor: pointer;
+}
 .dateText {
   color: #555;
   font-size: 0.8em;
+}
+.tuitImg {
+  border-radius: 0.5em;
+  height: auto;
+  max-width: 100%;
+}
+.link {
+  text-decoration: none;
+}
+.link:hover {
+  text-decoration: underline;
 }

@@ -14,9 +14,9 @@
   padding-left: 1em;
 }
 .content {
-  height: 100%;
+  flex: 1;
+  margin: 1em;
   overflow-y: auto;
-  width: 100%;
 }
 .nav {
   align-items: center;
@@ -27,4 +27,16 @@
   position: sticky;
   bottom: 0;
   width: 100%;
+}
+.navButton {
+  align-items: center;
+  display: flex;
+  flex: 1 1 auto;
+  height: 100%;
+  justify-content: center;
+}
+.navButton:hover {
+  background: radial-gradient(#0099ff22 15%, transparent 16%);
+  background-size: 180px 180px;
+  background-position: center;
 }
